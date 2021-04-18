@@ -20,7 +20,7 @@ namespace Algorithm.Sorting_types.Tests
             var rnd = new Random();
             var items = new List<int>();
 
-            for(int i = 0; i < 5; i++)
+            for(int i = 0; i < 5000; i++)
             {
                 bubble.Items.Add(rnd.Next(0, 100));
             }

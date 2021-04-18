@@ -29,82 +29,117 @@ namespace SortingAlgoritms
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.AddRNDLabel = new System.Windows.Forms.Label();
+            this.AddListButton = new System.Windows.Forms.Button();
+            this.TextboxAddList = new System.Windows.Forms.RichTextBox();
+            this.AddLabel = new System.Windows.Forms.Label();
+            this.ButtonAdd = new System.Windows.Forms.Button();
+            this.TextboxAdd = new System.Windows.Forms.RichTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // panel1
             // 
-            this.button1.Location = new System.Drawing.Point(173, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 72);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel1.Controls.Add(this.AddRNDLabel);
+            this.panel1.Controls.Add(this.AddListButton);
+            this.panel1.Controls.Add(this.TextboxAddList);
+            this.panel1.Controls.Add(this.AddLabel);
+            this.panel1.Controls.Add(this.ButtonAdd);
+            this.panel1.Controls.Add(this.TextboxAdd);
+            this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(284, 144);
+            this.panel1.TabIndex = 0;
             // 
-            // richTextBox1
+            // AddRNDLabel
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(140, 72);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.AddRNDLabel.AutoSize = true;
+            this.AddRNDLabel.Location = new System.Drawing.Point(11, 81);
+            this.AddRNDLabel.Name = "AddRNDLabel";
+            this.AddRNDLabel.Size = new System.Drawing.Size(184, 13);
+            this.AddRNDLabel.TabIndex = 5;
+            this.AddRNDLabel.Text = "Enter the number of random numbers:";
             // 
-            // button2
+            // AddListButton
             // 
-            this.button2.Location = new System.Drawing.Point(12, 90);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 38);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Sort";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AddListButton.Location = new System.Drawing.Point(201, 83);
+            this.AddListButton.Name = "AddListButton";
+            this.AddListButton.Size = new System.Drawing.Size(70, 47);
+            this.AddListButton.TabIndex = 4;
+            this.AddListButton.Text = "Add List";
+            this.AddListButton.UseVisualStyleBackColor = true;
+            this.AddListButton.Click += new System.EventHandler(this.AddListButton_Click);
             // 
-            // label1
+            // TextboxAddList
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(284, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 4;
+            this.TextboxAddList.Location = new System.Drawing.Point(11, 97);
+            this.TextboxAddList.Name = "TextboxAddList";
+            this.TextboxAddList.Size = new System.Drawing.Size(184, 31);
+            this.TextboxAddList.TabIndex = 3;
+            this.TextboxAddList.Text = "";
             // 
-            // label2
+            // AddLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 5;
+            this.AddLabel.AutoSize = true;
+            this.AddLabel.Location = new System.Drawing.Point(11, 13);
+            this.AddLabel.Name = "AddLabel";
+            this.AddLabel.Size = new System.Drawing.Size(67, 13);
+            this.AddLabel.TabIndex = 2;
+            this.AddLabel.Text = "Add number:";
+            // 
+            // ButtonAdd
+            // 
+            this.ButtonAdd.Location = new System.Drawing.Point(172, 13);
+            this.ButtonAdd.Name = "ButtonAdd";
+            this.ButtonAdd.Size = new System.Drawing.Size(99, 47);
+            this.ButtonAdd.TabIndex = 1;
+            this.ButtonAdd.Text = "Add";
+            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
+            // 
+            // TextboxAdd
+            // 
+            this.TextboxAdd.Location = new System.Drawing.Point(11, 29);
+            this.TextboxAdd.Name = "TextboxAdd";
+            this.TextboxAdd.Size = new System.Drawing.Size(155, 31);
+            this.TextboxAdd.TabIndex = 0;
+            this.TextboxAdd.Text = "";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel2.Location = new System.Drawing.Point(292, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(308, 144);
+            this.panel2.TabIndex = 1;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(601, 504);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Main";
             this.Text = "SortingAlgorithms";
-            this.Load += new System.EventHandler(this.Main_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label AddRNDLabel;
+        private System.Windows.Forms.Button AddListButton;
+        private System.Windows.Forms.RichTextBox TextboxAddList;
+        private System.Windows.Forms.Label AddLabel;
+        private System.Windows.Forms.Button ButtonAdd;
+        private System.Windows.Forms.RichTextBox TextboxAdd;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

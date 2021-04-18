@@ -1,12 +1,5 @@
 ﻿using System;
-using SortingAlgoritms;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Algorithm;
 
@@ -14,33 +7,50 @@ namespace SortingAlgoritms
 {
     public partial class Main : Form
     {
-        BaseAlgorithm<int> algorithm = new BubbleSort<int>();
+        List<SortedItem> items = new List<SortedItem>();
+
         public Main()
         {
             InitializeComponent();
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(int.TryParse(richTextBox1.Text, out int value))
+            if (int.TryParse(TextboxAdd.Text, out int value))
             {
-                algorithm.Items.Add(value);
-                label1.Text += " " + value;
+                var item = new SortedItem(value);
+                items.Add(item);
+                panel2.Controls.Add(item.VProgressBar);
+                panel2.Controls.Add(item.Label);
             }
+            TextboxAdd.Text = "";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AddListButton_Click(object sender, EventArgs e)
         {
-            algorithm.Sort();
-
-            foreach(var item in algorithm.Items)
+            if (int.TryParse(TextboxAddList.Text, out int value))
             {
-                label2.Text += " " + item;
+                var rnd = new Random();
+                for (int i = 0; i < value; i++)
+                {
+                    var item = new SortedItem(rnd.Next());
+                    items.Add(item);
+                    panel2.Controls.Add(item.VProgressBar);
+                    panel2.Controls.Add(item.Label);
+                }
+            }
+            TextboxAddList.Text = "";
+        }
+    }
+    public class VerticalProgressBar : ProgressBar
+    {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style |= 0x04;
+                return cp;
             }
         }
     }

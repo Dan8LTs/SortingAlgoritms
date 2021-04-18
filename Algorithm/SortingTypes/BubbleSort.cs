@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithm
 {
     public class BubbleSort<T> : BaseAlgorithm<T> where T : IComparable
     {
-        public override void Sort()
+        protected override void DoSort()
         {
             var count = Items.Count;
 
@@ -22,6 +18,7 @@ namespace Algorithm
                     if (itemA.CompareTo(itemB) == 1)
                     {
                         Swop(i, i + 1);
+                        CompareCount++;
                     }
                 }
             }
