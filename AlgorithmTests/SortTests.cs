@@ -19,9 +19,9 @@ namespace AlgorithmTests
         public void Init()
         {
             Items.Clear();
-            for(int i = 10000; i > 1; i--)
+            for (int i = 0; i < 8000; i++)
             {
-                Items.Add(i);
+                Items.Add(rnd.Next());
             }
             Sorted.Clear();
             Sorted.AddRange(Items.OrderBy(x => x).ToArray());
@@ -44,7 +44,7 @@ namespace AlgorithmTests
                 Assert.AreEqual(Sorted[i], bubble.Items[i]);
             }
         }
-        
+
         [TestMethod]
         public void CocktailTest()
         {
@@ -61,7 +61,7 @@ namespace AlgorithmTests
                 Assert.AreEqual(Sorted[i], cocktail.Items[i]);
             }
         }
-        
+
         [TestMethod]
         public void InsertTest()
         {
@@ -76,6 +76,40 @@ namespace AlgorithmTests
             for (int i = 0; i < Items.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], insert.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void ShellTest()
+        {
+            // arrange
+            var shell = new ShellSort<int>();
+            shell.Items.AddRange(Items);
+
+            // act
+            shell.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], shell.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void TreeSortTest()
+        {
+            // arrange
+            var tree = new TreeSort<int>();
+            tree.Items.AddRange(Items);
+
+            // act
+            tree.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], tree.Items[i]);
             }
         }
     }

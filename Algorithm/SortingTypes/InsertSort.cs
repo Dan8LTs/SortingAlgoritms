@@ -14,12 +14,10 @@ namespace Algorithm.SortingTypes
             {
                 var tempItem = Items[i];
                 var j = i;
-                while(j > 0 && tempItem.CompareTo(Items[j - 1]) == -1)
+                while(j > 0 && Compare(tempItem, Items[j - 1]) == -1)
                 {
-                    Items[j] = Items[j - 1];
+                    Swop(j, j - 1);
                     j--;
-                    SwopCount++;
-                    CompareCount++;
                 }
                 Items[j] = tempItem;
             }

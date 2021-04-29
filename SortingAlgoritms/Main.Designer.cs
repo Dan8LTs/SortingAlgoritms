@@ -37,6 +37,8 @@ namespace SortingAlgoritms
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.TextboxAdd = new System.Windows.Forms.RichTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BubbleSortButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,11 +117,33 @@ namespace SortingAlgoritms
             this.panel2.Size = new System.Drawing.Size(308, 144);
             this.panel2.TabIndex = 1;
             // 
+            // BubbleSortButton
+            // 
+            this.BubbleSortButton.Location = new System.Drawing.Point(12, 153);
+            this.BubbleSortButton.Name = "BubbleSortButton";
+            this.BubbleSortButton.Size = new System.Drawing.Size(75, 23);
+            this.BubbleSortButton.TabIndex = 2;
+            this.BubbleSortButton.Text = "BubbleSort";
+            this.BubbleSortButton.UseVisualStyleBackColor = true;
+            this.BubbleSortButton.Click += new System.EventHandler(this.BubbleSortButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button1.Location = new System.Drawing.Point(481, 289);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 504);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BubbleSortButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Main";
@@ -140,6 +164,8 @@ namespace SortingAlgoritms
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.RichTextBox TextboxAdd;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button BubbleSortButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
