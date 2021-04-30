@@ -19,7 +19,7 @@ namespace AlgorithmTests
         public void Init()
         {
             Items.Clear();
-            for (int i = 0; i < 8000; i++)
+            for (int i = 0; i < 5000; i++)
             {
                 Items.Add(rnd.Next());
             }
@@ -97,7 +97,7 @@ namespace AlgorithmTests
         }
 
         [TestMethod]
-        public void TreeSortTest()
+        public void TreeTest()
         {
             // arrange
             var tree = new TreeSort<int>();
@@ -110,6 +110,23 @@ namespace AlgorithmTests
             for (int i = 0; i < Items.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], tree.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void HeapTest()
+        {
+            // arrange
+            var heap = new HeapSort<int>();
+            heap.Items.AddRange(Items);
+
+            // act
+            heap.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], heap.Items[i]);
             }
         }
     }
