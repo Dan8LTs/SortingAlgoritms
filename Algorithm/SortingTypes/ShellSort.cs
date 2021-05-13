@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.SortingTypes
 {
     public class ShellSort<T> : BaseAlgorithm<T> where T: IComparable
     {
+        public ShellSort(IEnumerable<T> items) : base(items) { }
+        public ShellSort() { }
         protected override void DoSort()
         {
             var step = Items.Count / 2;

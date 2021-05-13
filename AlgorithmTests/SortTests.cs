@@ -1,4 +1,5 @@
 ﻿using Algorithm;
+using Algorithm.DataStructures;
 using Algorithm.SortingType;
 using Algorithm.SortingTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +20,7 @@ namespace AlgorithmTests
         public void Init()
         {
             Items.Clear();
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 Items.Add(rnd.Next());
             }
@@ -100,8 +101,7 @@ namespace AlgorithmTests
         public void TreeTest()
         {
             // arrange
-            var tree = new TreeSort<int>();
-            tree.Items.AddRange(Items);
+            var tree = new Tree<int>(Items);
 
             // act
             tree.Sort();
@@ -117,8 +117,7 @@ namespace AlgorithmTests
         public void HeapTest()
         {
             // arrange
-            var heap = new HeapSort<int>();
-            heap.Items.AddRange(Items);
+            var heap = new Heap<int>(Items);
 
             // act
             heap.Sort();
@@ -127,6 +126,40 @@ namespace AlgorithmTests
             for (int i = 0; i < Items.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], heap.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void SelectionTest()
+        {
+            // arrange
+            var select = new SelectionSort<int>();
+            select.Items.AddRange(Items);
+
+            // act
+            select.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], select.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void GnomeTest()
+        {
+            // arrange
+            var gnome = new GnomeSort<int>();
+            gnome.Items.AddRange(Items);
+
+            // act
+            gnome.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], gnome.Items[i]);
             }
         }
     }

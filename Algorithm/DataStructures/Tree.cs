@@ -6,106 +6,95 @@ using System.Threading.Tasks;
 
 namespace Algorithm.DataStructures
 {
-    public class Tree<T>
-        where T : IComparable
+    public class Tree<T> : BaseAlgorithm<T> where T : IComparable
     {
-        public Node<T> Root { get; private set; }
+        private Node<T> Root { get; set; }
         public int Count { get; private set; }
+
         public Tree() { }
+
         public Tree(IEnumerable<T> items)
         {
-            foreach(var item in items)
+            var list = items.ToList();
+            for (int i = 0; i < list.Count; i++)
             {
-                Add(item);
+                var item = list[i];
+                Items.Add(item);
+
+                var node = new Node<T>(item, i);
+                Add(node);
             }
         }
-        public void Add(T data)
+
+        private void Add(Node<T> node)
         {
             if (Root == null)
             {
-                Root = new Node<T>(data);
+                Root = node;
                 Count = 1;
                 return;
             }
-            Root.Add(data);
+
+            Add(Root, node);
             Count++;
         }
-        public List<T> Preorder()
+
+        private void Add(Node<T> node, Node<T> newNode)
         {
-            var list = new List<T>();
-            if (Root == null)
+            if (Compare(node.Data, newNode.Data) == 1)
             {
-                return list;
-            }
-            return Preorder(Root);
-        }
-        public List<T> Postorder()
-        {
-            var list = new List<T>();
-            if (Root == null)
-            {
-                return list;
-            }
-            return Postorder(Root);
-        }
-        public List<T> Inorder()
-        {
-            var list = new List<T>();
-            if (Root == null)
-            {
-                return list;
-            }
-            return Inorder(Root);
-        }
-        private List<T> Preorder(Node<T> node)
-        {
-            var list = new List<T>();
-            if (node != null)
-            {
-                list.Add(node.Data);
-                if (node.Left != null)
+                if (node.Left == null)
                 {
-                    list.AddRange(Preorder(node.Left));
+
+                    node.Left = newNode;
                 }
-                if (node.Right != null)
+                else
                 {
-                    list.AddRange(Preorder(node.Right));
+
+                    Add(node.Left, newNode);
                 }
             }
-            return list;
-        }
-        private List<T> Postorder(Node<T> node)
-        {
-            var list = new List<T>();
-            if (node != null)
+            else
             {
-                if (node.Left != null)
+                if (node.Right == null)
                 {
-                    list.AddRange(Postorder(node.Left));
+                    node.Right = newNode;
                 }
-                if (node.Right != null)
+                else
                 {
-                    list.AddRange(Postorder(node.Right));
+                    Add(node.Right, newNode);
                 }
-                list.Add(node.Data);
             }
-            return list;
         }
-        private List<T> Inorder(Node<T> node)
+
+        protected override void DoSort()
         {
-            var list = new List<T>();
+            var result = Inorder(Root).Select(r => r.Data).ToList();
+
+            for (int i = 0; i < result.Count; i++)
+            {
+                Set(i, result[i]);
+            }
+        }
+
+        private List<Node<T>> Inorder(Node<T> node)
+        {
+            var list = new List<Node<T>>();
             if (node != null)
             {
                 if (node.Left != null)
                 {
                     list.AddRange(Inorder(node.Left));
                 }
-                list.Add(node.Data);
+
+                list.Add(node);
+
                 if (node.Right != null)
                 {
                     list.AddRange(Inorder(node.Right));
                 }
             }
+
             return list;
         }
     }

@@ -12,6 +12,7 @@ namespace Algorithm
 
         public event EventHandler<Tuple<T, T>> CompareEvent;
         public event EventHandler<Tuple<T, T>> SwopEvent;
+        public event EventHandler<Tuple<int, T>> SetEvent;
 
         public BaseAlgorithm(IEnumerable<T> items)
         {
@@ -28,6 +29,15 @@ namespace Algorithm
                 var temp = Items[positionA];
                 Items[positionA] = Items[positionB];
                 Items[positionB] = temp;
+            }
+        }
+        protected void Set(int position, T item)
+        {
+            if (position < Items.Count)
+            {
+                SetEvent?.Invoke(this, new Tuple<int, T>(position, item));
+
+                Items[position] = item;
             }
         }
         public TimeSpan Sort()

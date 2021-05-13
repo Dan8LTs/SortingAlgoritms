@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.SortingType
 {
     public class CocktailSort<T> : BaseAlgorithm<T> where T : IComparable
     {
+        public CocktailSort(IEnumerable<T> items) : base(items) { }
+        public CocktailSort() { }
         protected override void DoSort()
         {
             int left = 0;

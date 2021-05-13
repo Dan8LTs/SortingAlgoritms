@@ -6,27 +6,13 @@ using System.Threading.Tasks;
 
 namespace Algorithm.DataStructures
 {
-    public class Heap<T> where T : IComparable
+    public class Heap<T> : BaseAlgorithm<T> where T : IComparable
     {
-        private List<T> items = new List<T>();
-        public int Count => items.Count;
-        public T Peek()
-        {
-            if (Count > 0)
-            {
-                return items[0];
-            }
-            else
-            {
-                throw new ArgumentNullException(nameof(items), "Heap is empty");
-            }
-        }
-
-        public Heap() { }
+        public int Count => Items.Count;
 
         public Heap(IEnumerable<T> items)
         {
-            this.items.AddRange(items);
+            Items.AddRange(items);
             for (int i = Count; i >= 0; i--)
             {
                 Sort(i);
@@ -35,80 +21,74 @@ namespace Algorithm.DataStructures
 
         public void Add(T item)
         {
-            items.Add(item);
+            Items.Add(item);
 
-            var indexCurrent = Count - 1;
-            var indexParent = GetParent(indexCurrent);
+            var currentIndex = Count - 1;
+            var parentIndex = GetParentIndex(currentIndex);
 
-            while (indexCurrent > 0 && items[indexParent].CompareTo(items[indexCurrent]) == -1)
+            while (currentIndex > 0 && Compare(Items[parentIndex], Items[currentIndex]) == -1)
             {
-                SwapCurrent(indexCurrent, indexParent);
-                indexCurrent = indexParent;
-                indexParent = GetParent(indexCurrent);
+                Swop(currentIndex, parentIndex);
+
+                currentIndex = parentIndex;
+                parentIndex = GetParentIndex(currentIndex);
             }
         }
 
         public T GetMax()
         {
-            var result = items[0];
-            items[0] = items[Count - 1];
-            items.RemoveAt(Count - 1);
+            var result = Items[0];
+            Items[0] = Items[Count - 1];
+            Items.RemoveAt(Count - 1);
             Sort(0);
             return result;
         }
 
-        private void Sort(int indexCurrent)
+        private void Sort(int curentIndex, int maxLenght = -1)
         {
-            int indexMax = indexCurrent;
-            int indexLeft;
-            int indexRight;
+            int maxIndex = curentIndex;
+            int leftIndex;
+            int rightIndex;
 
-            while (indexCurrent < Count)
+            maxLenght = maxLenght == -1 ? Count : maxLenght;
+
+            while (curentIndex < maxLenght)
             {
-                indexLeft = indexCurrent * 2 + 1;
-                indexRight = indexCurrent * 2 + 2;
+                leftIndex = 2 * curentIndex + 1;
+                rightIndex = 2 * curentIndex + 2;
 
-                if (indexLeft < Count && items[indexLeft].CompareTo(items[indexMax]) == -1)
+                if (leftIndex < maxLenght && Compare(Items[leftIndex], Items[maxIndex]) == 1)
                 {
-                    indexMax = indexLeft;
+                    maxIndex = leftIndex;
                 }
 
-                if (indexRight < Count && items[indexRight].CompareTo(items[indexMax]) == -1)
+                if (rightIndex < maxLenght && Compare(Items[rightIndex], Items[maxIndex]) == 1)
                 {
-                    indexMax = indexRight;
+                    maxIndex = rightIndex;
                 }
 
-                if (indexMax == indexCurrent)
+                if (maxIndex == curentIndex)
                 {
                     break;
                 }
 
-                SwapCurrent(indexCurrent, indexMax);
-                indexCurrent = indexMax;
+                Swop(curentIndex, maxIndex);
+                curentIndex = maxIndex;
             }
         }
 
-        private void SwapCurrent(int current, int parent)
+        private int GetParentIndex(int currentIndex)
         {
-            var  temp = items[current];
-            items[current] = items[parent];
-            items[parent] = temp;
+            return (currentIndex - 1) / 2;
         }
 
-
-        private static int GetParent(int current)
+        protected override void DoSort()
         {
-            return (current - 1) / 2;
-        }
-
-        public List<T> Order()
-        {
-            var result = new List<T>();
-            while (Count > 0)
+            for (int i = Count - 1; i >= 0; i--)
             {
-                result.Add(GetMax());
+                Swop(0, i);
+                Sort(0, i);
             }
-            return result;
         }
     }
 }
