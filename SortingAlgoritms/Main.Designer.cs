@@ -48,6 +48,8 @@ namespace SortingAlgoritms
             this.CompareLbl = new System.Windows.Forms.Label();
             this.SelectionSortButton = new System.Windows.Forms.Button();
             this.GnomeSortButton = new System.Windows.Forms.Button();
+            this.LsdRadixSortButton = new System.Windows.Forms.Button();
+            this.MsdRadixSortButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,7 +134,7 @@ namespace SortingAlgoritms
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel2.AutoSize = true;
-            this.panel2.Location = new System.Drawing.Point(301, 28);
+            this.panel2.Location = new System.Drawing.Point(301, 50);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(277, 232);
             this.panel2.TabIndex = 3;
@@ -190,7 +192,7 @@ namespace SortingAlgoritms
             // TimeLbl
             // 
             this.TimeLbl.AutoSize = true;
-            this.TimeLbl.Location = new System.Drawing.Point(9, 250);
+            this.TimeLbl.Location = new System.Drawing.Point(9, 291);
             this.TimeLbl.Name = "TimeLbl";
             this.TimeLbl.Size = new System.Drawing.Size(56, 13);
             this.TimeLbl.TabIndex = 9;
@@ -199,7 +201,7 @@ namespace SortingAlgoritms
             // SwopLbl
             // 
             this.SwopLbl.AutoSize = true;
-            this.SwopLbl.Location = new System.Drawing.Point(9, 301);
+            this.SwopLbl.Location = new System.Drawing.Point(9, 344);
             this.SwopLbl.Name = "SwopLbl";
             this.SwopLbl.Size = new System.Drawing.Size(114, 13);
             this.SwopLbl.TabIndex = 10;
@@ -208,7 +210,7 @@ namespace SortingAlgoritms
             // CompareLbl
             // 
             this.CompareLbl.AutoSize = true;
-            this.CompareLbl.Location = new System.Drawing.Point(9, 277);
+            this.CompareLbl.Location = new System.Drawing.Point(9, 318);
             this.CompareLbl.Name = "CompareLbl";
             this.CompareLbl.Size = new System.Drawing.Size(121, 13);
             this.CompareLbl.TabIndex = 11;
@@ -234,12 +236,33 @@ namespace SortingAlgoritms
             this.GnomeSortButton.UseVisualStyleBackColor = true;
             this.GnomeSortButton.Click += new System.EventHandler(this.GnomeSortButton_Click);
             // 
+            // LsdRadixSortButton
+            // 
+            this.LsdRadixSortButton.Location = new System.Drawing.Point(189, 211);
+            this.LsdRadixSortButton.Name = "LsdRadixSortButton";
+            this.LsdRadixSortButton.Size = new System.Drawing.Size(83, 23);
+            this.LsdRadixSortButton.TabIndex = 14;
+            this.LsdRadixSortButton.Text = "LsdRadixSort";
+            this.LsdRadixSortButton.UseVisualStyleBackColor = true;
+            this.LsdRadixSortButton.Click += new System.EventHandler(this.LsdRadixSortButton_Click);
+            // 
+            // MsdRadixSortButton
+            // 
+            this.MsdRadixSortButton.Location = new System.Drawing.Point(12, 240);
+            this.MsdRadixSortButton.Name = "MsdRadixSortButton";
+            this.MsdRadixSortButton.Size = new System.Drawing.Size(82, 23);
+            this.MsdRadixSortButton.TabIndex = 15;
+            this.MsdRadixSortButton.Text = "MsdRadixSort";
+            this.MsdRadixSortButton.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(590, 323);
+            this.ClientSize = new System.Drawing.Size(590, 366);
+            this.Controls.Add(this.MsdRadixSortButton);
+            this.Controls.Add(this.LsdRadixSortButton);
             this.Controls.Add(this.GnomeSortButton);
             this.Controls.Add(this.SelectionSortButton);
             this.Controls.Add(this.CompareLbl);
@@ -283,6 +306,8 @@ namespace SortingAlgoritms
         private System.Windows.Forms.Label CompareLbl;
         private System.Windows.Forms.Button SelectionSortButton;
         private System.Windows.Forms.Button GnomeSortButton;
+        private System.Windows.Forms.Button LsdRadixSortButton;
+        private System.Windows.Forms.Button MsdRadixSortButton;
     }
 }
 

@@ -22,7 +22,7 @@ namespace AlgorithmTests
             Items.Clear();
             for (int i = 0; i < 1000; i++)
             {
-                Items.Add(rnd.Next());
+                Items.Add(rnd.Next(20000));
             }
             Sorted.Clear();
             Sorted.AddRange(Items.OrderBy(x => x).ToArray());
@@ -160,6 +160,40 @@ namespace AlgorithmTests
             for (int i = 0; i < Items.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], gnome.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void LsdRadixTest()
+        {
+            // arrange
+            var lsd = new LsdRadixSort<int>();
+            lsd.Items.AddRange(Items);
+
+            // act
+            lsd.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], lsd.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void MsdRadixTest()
+        {
+            // arrange
+            var msd = new MsdRadixSort<int>();
+            msd.Items.AddRange(Items);
+
+            // act
+            msd.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], msd.Items[i]);
             }
         }
     }

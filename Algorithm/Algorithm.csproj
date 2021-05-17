@@ -50,6 +50,8 @@
     <Compile Include="SortingTypes\CocktailSort.cs" />
     <Compile Include="SortingTypes\GnomeSort.cs" />
     <Compile Include="SortingTypes\InsertSort.cs" />
+    <Compile Include="SortingTypes\MsdRadixSort.cs" />
+    <Compile Include="SortingTypes\LsdRadixSort.cs" />
     <Compile Include="SortingTypes\SelectionSort.cs" />
     <Compile Include="SortingTypes\ShellSort.cs" />
   </ItemGroup>

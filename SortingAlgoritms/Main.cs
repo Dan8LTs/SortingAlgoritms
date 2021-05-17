@@ -200,5 +200,18 @@ namespace SortingAlgoritms
             SwopLbl.Text = "";
             CompareLbl.Text = "";
         }
+        private void LsdRadixSortButton_Click(object sender, EventArgs e)
+        {
+            CleaningLabels();
+            var lsd = new LsdRadixSort<SortedItem>(items);
+            BtnClick(lsd);
+        }
+
+        private void MsdRadixSortButton_Click(object sender, EventArgs e)
+        {
+            CleaningLabels();
+            var msd = new MsdRadixSort<SortedItem>(items);
+            BtnClick(msd);
+        }
     }
 }
