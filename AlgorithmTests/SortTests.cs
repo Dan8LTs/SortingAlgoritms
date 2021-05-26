@@ -20,9 +20,9 @@ namespace AlgorithmTests
         public void Init()
         {
             Items.Clear();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 50000; i++)
             {
-                Items.Add(rnd.Next(20000));
+                Items.Add(rnd.Next(1000000000));
             }
             Sorted.Clear();
             Sorted.AddRange(Items.OrderBy(x => x).ToArray());
@@ -194,6 +194,40 @@ namespace AlgorithmTests
             for (int i = 0; i < Items.Count; i++)
             {
                 Assert.AreEqual(Sorted[i], msd.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void MergeTest()
+        {
+            // arrange
+            var merge = new MergeSort<int>();
+            merge.Items.AddRange(Items);
+
+            // act
+            merge.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], merge.Items[i]);
+            }
+        }
+
+        [TestMethod]
+        public void QuickTest()
+        {
+            // arrange
+            var quick = new QuickSort<int>();
+            quick.Items.AddRange(Items);
+
+            // act
+            quick.Sort();
+
+            // assert
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Assert.AreEqual(Sorted[i], quick.Items[i]);
             }
         }
     }

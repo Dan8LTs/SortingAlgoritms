@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SortingAlgoritms
 {
-    public class SortedItem : IComparable
+    class SortedItem : IComparable
     {
         public VerticalProgressBar.VerticalProgressBar VProgressBar { get; private set; }
         public Label Label { get; private set; }
@@ -25,13 +21,6 @@ namespace SortingAlgoritms
 
             var x = number * 25;
 
-            Label.AutoSize = true;
-            Label.Location = new Point(x, 100);
-            Label.Name = "label" + number;
-            Label.Size = new Size(19, 13);
-            Label.TabIndex = number;
-            Label.Text = Value.ToString();
-
             VProgressBar.BorderStyle = VerticalProgressBar.BorderStyles.Classic;
             VProgressBar.Color = Color.Blue;
             VProgressBar.Location = new Point(x, 0);
@@ -43,6 +32,13 @@ namespace SortingAlgoritms
             VProgressBar.Style = VerticalProgressBar.Styles.Solid;
             VProgressBar.TabIndex = number;
             VProgressBar.Value = Value;
+            
+            Label.AutoSize = true;
+            Label.Location = new Point(x, 100);
+            Label.Name = "label" + number;
+            Label.Size = new Size(19, 13);
+            Label.TabIndex = number;
+            Label.Text = Value.ToString();
         }
 
         public void SetPosition(int number)
@@ -83,6 +79,10 @@ namespace SortingAlgoritms
         public override string ToString()
         {
             return Value.ToString();
+        }
+        public override int GetHashCode()
+        {
+            return Value;
         }
     }
 }

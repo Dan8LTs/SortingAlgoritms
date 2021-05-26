@@ -50,6 +50,8 @@ namespace SortingAlgoritms
             this.GnomeSortButton = new System.Windows.Forms.Button();
             this.LsdRadixSortButton = new System.Windows.Forms.Button();
             this.MsdRadixSortButton = new System.Windows.Forms.Button();
+            this.MergeSortButton = new System.Windows.Forms.Button();
+            this.QuickSortButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,9 +143,9 @@ namespace SortingAlgoritms
             // 
             // CocktailSortButton
             // 
-            this.CocktailSortButton.Location = new System.Drawing.Point(101, 153);
+            this.CocktailSortButton.Location = new System.Drawing.Point(102, 153);
             this.CocktailSortButton.Name = "CocktailSortButton";
-            this.CocktailSortButton.Size = new System.Drawing.Size(83, 23);
+            this.CocktailSortButton.Size = new System.Drawing.Size(82, 23);
             this.CocktailSortButton.TabIndex = 4;
             this.CocktailSortButton.Text = "Cocktail Sort";
             this.CocktailSortButton.UseVisualStyleBackColor = true;
@@ -171,9 +173,9 @@ namespace SortingAlgoritms
             // 
             // TreeSortButton
             // 
-            this.TreeSortButton.Location = new System.Drawing.Point(101, 182);
+            this.TreeSortButton.Location = new System.Drawing.Point(102, 182);
             this.TreeSortButton.Name = "TreeSortButton";
-            this.TreeSortButton.Size = new System.Drawing.Size(83, 23);
+            this.TreeSortButton.Size = new System.Drawing.Size(82, 23);
             this.TreeSortButton.TabIndex = 7;
             this.TreeSortButton.Text = "Tree Sort";
             this.TreeSortButton.UseVisualStyleBackColor = true;
@@ -228,9 +230,9 @@ namespace SortingAlgoritms
             // 
             // GnomeSortButton
             // 
-            this.GnomeSortButton.Location = new System.Drawing.Point(101, 211);
+            this.GnomeSortButton.Location = new System.Drawing.Point(102, 211);
             this.GnomeSortButton.Name = "GnomeSortButton";
-            this.GnomeSortButton.Size = new System.Drawing.Size(83, 23);
+            this.GnomeSortButton.Size = new System.Drawing.Size(82, 23);
             this.GnomeSortButton.TabIndex = 13;
             this.GnomeSortButton.Text = "Gnome Sort";
             this.GnomeSortButton.UseVisualStyleBackColor = true;
@@ -238,7 +240,7 @@ namespace SortingAlgoritms
             // 
             // LsdRadixSortButton
             // 
-            this.LsdRadixSortButton.Location = new System.Drawing.Point(189, 211);
+            this.LsdRadixSortButton.Location = new System.Drawing.Point(190, 211);
             this.LsdRadixSortButton.Name = "LsdRadixSortButton";
             this.LsdRadixSortButton.Size = new System.Drawing.Size(83, 23);
             this.LsdRadixSortButton.TabIndex = 14;
@@ -254,6 +256,27 @@ namespace SortingAlgoritms
             this.MsdRadixSortButton.TabIndex = 15;
             this.MsdRadixSortButton.Text = "MsdRadixSort";
             this.MsdRadixSortButton.UseVisualStyleBackColor = true;
+            this.MsdRadixSortButton.Click += new System.EventHandler(this.MsdRadixSortButton_Click_1);
+            // 
+            // MergeSortButton
+            // 
+            this.MergeSortButton.Location = new System.Drawing.Point(102, 240);
+            this.MergeSortButton.Name = "MergeSortButton";
+            this.MergeSortButton.Size = new System.Drawing.Size(82, 23);
+            this.MergeSortButton.TabIndex = 16;
+            this.MergeSortButton.Text = "Merge Sort";
+            this.MergeSortButton.UseVisualStyleBackColor = true;
+            this.MergeSortButton.Click += new System.EventHandler(this.MergeSortButton_Click);
+            // 
+            // QuickSortButton
+            // 
+            this.QuickSortButton.Location = new System.Drawing.Point(190, 240);
+            this.QuickSortButton.Name = "QuickSortButton";
+            this.QuickSortButton.Size = new System.Drawing.Size(82, 23);
+            this.QuickSortButton.TabIndex = 17;
+            this.QuickSortButton.Text = "QuickSort";
+            this.QuickSortButton.UseVisualStyleBackColor = true;
+            this.QuickSortButton.Click += new System.EventHandler(this.QuickSortButton_Click);
             // 
             // Main
             // 
@@ -261,6 +284,8 @@ namespace SortingAlgoritms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(590, 366);
+            this.Controls.Add(this.QuickSortButton);
+            this.Controls.Add(this.MergeSortButton);
             this.Controls.Add(this.MsdRadixSortButton);
             this.Controls.Add(this.LsdRadixSortButton);
             this.Controls.Add(this.GnomeSortButton);
@@ -308,6 +333,8 @@ namespace SortingAlgoritms
         private System.Windows.Forms.Button GnomeSortButton;
         private System.Windows.Forms.Button LsdRadixSortButton;
         private System.Windows.Forms.Button MsdRadixSortButton;
+        private System.Windows.Forms.Button MergeSortButton;
+        private System.Windows.Forms.Button QuickSortButton;
     }
 }
 

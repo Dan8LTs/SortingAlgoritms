@@ -52,10 +52,9 @@ namespace Algorithm.SortingTypes
             {
                 if (item.GetHashCode() < 0)
                 {
-                    throw new ArgumentException("Bitwise sorting only supports integers (greater than or equal to zero)", nameof(Items));
+                    throw new ArgumentException("Radix sorting only supports integers that are greater than or equal to zero", nameof(Items));
                 }
 
-                //var l = Convert.ToInt32(Math.Log10(item.GetHashCode()) + 1); // Doesn't work with item = 0. Gives -inf.
                 var l = item.GetHashCode().ToString().Length;
                 if (l > length)
                 {

@@ -13,7 +13,7 @@ namespace SortingAlgoritms
     public partial class Main : Form
     {
         List<SortedItem> items = new List<SortedItem>();
-        private const int sleep = 40;
+        private const int sleep = 80;
 
         public Main()
         {
@@ -96,13 +96,13 @@ namespace SortingAlgoritms
             panel2.Refresh();
 
             Thread.Sleep(sleep);
-
+            
             var temp = e.Item1.Number;
             e.Item1.SetPosition(e.Item2.Number);
             e.Item2.SetPosition(temp);
             panel2.Refresh();
 
-            Thread.Sleep(sleep);
+            Thread.Sleep(sleep); 
 
             e.Item1.SetColor(Color.DarkViolet);
             e.Item2.SetColor(Color.DarkViolet);
@@ -153,35 +153,30 @@ namespace SortingAlgoritms
             var shell = new ShellSort<SortedItem>(items);
             BtnClick(shell);
         }
-
         private void CocktailSortButton_Click(object sender, EventArgs e)
         {
             CleaningLabels();
             var cocktail = new CocktailSort<SortedItem>(items);
             BtnClick(cocktail);
         }
-
         private void InsertSortButton_Click(object sender, EventArgs e)
         {
             CleaningLabels();
             var insert = new InsertSort<SortedItem>(items);
             BtnClick(insert);
         }
-
         private void TreeSortButton_Click(object sender, EventArgs e)
         {
             CleaningLabels();
             var tree = new Tree<SortedItem>(items);
             BtnClick(tree);
         }
-
         private void HeapSortButton_Click(object sender, EventArgs e)
         {
             CleaningLabels();
             var heap = new Heap<SortedItem>(items);
             BtnClick(heap);
         }
-
         private void SelectionSortButton_Click(object sender, EventArgs e)
         {
             CleaningLabels();
@@ -194,24 +189,36 @@ namespace SortingAlgoritms
             var gnome = new GnomeSort<SortedItem>(items);
             BtnClick(gnome);
         }
-        private void CleaningLabels()
-        {
-            TimeLbl.Text = "";
-            SwopLbl.Text = "";
-            CompareLbl.Text = "";
-        }
         private void LsdRadixSortButton_Click(object sender, EventArgs e)
         {
             CleaningLabels();
             var lsd = new LsdRadixSort<SortedItem>(items);
             BtnClick(lsd);
         }
-
-        private void MsdRadixSortButton_Click(object sender, EventArgs e)
+        private void MergeSortButton_Click(object sender, EventArgs e)
+        {
+            CleaningLabels();
+            var mergeSort = new MergeSort<SortedItem>(items);
+            BtnClick(mergeSort);
+        }
+        private void MsdRadixSortButton_Click_1(object sender, EventArgs e)
         {
             CleaningLabels();
             var msd = new MsdRadixSort<SortedItem>(items);
             BtnClick(msd);
+        }
+        private void QuickSortButton_Click(object sender, EventArgs e)
+        {
+            CleaningLabels();
+            var quick = new QuickSort<SortedItem>(items);
+            BtnClick(quick);
+        }
+
+        private void CleaningLabels()
+        {
+            TimeLbl.Text = "";
+            SwopLbl.Text = "";
+            CompareLbl.Text = "";
         }
     }
 }
